@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Flip Birthday Card</title>
+    <link rel="stylesheet" href="buttonstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            position: relative;
+            width: 330px;
+            height: 450px;
+            margin-bottom: 12%;
+            margin-right: 55%;
+            margin-left: 50%;
+            perspective: 1000px;
+            /* transition: transform 2s; */
+        }
+
+        .card-front,
+        .card-back {
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 4s ease-in-out;
+
+        }
+
+        .card-front {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center;
+            align-items: center; */
+            border-radius: 9.5px;
+            z-index: 1;
+            box-shadow: 1px 1px 20px 6px rgb(1, 114, 145);
+            transform: rotateY(0deg);
+            cursor: pointer;
+            /* background: linear-gradient(pink 30%, red 60%); */
+        }
+
+        .card-back {
+            border-radius: 9.5px;
+            box-shadow: 1px 1px 20px 6px rgb(1, 114, 145);
+            transform: rotateY(180deg);
+            background: linear-gradient(to bottom, rgb(198, 246, 198) 40%, rgb(39, 245, 217) 60%);
+            color: #fff;
+            /* text-align: center; */
+            /* color: rgb(189, 144, 144); */
+            /* border: 2px solid aquamarine; */
+            text-indent: 0%;
+
+
+        }
+
+        .card-back .box {
+            margin-left: 10%;
+            border-radius: 9.5px;
+            box-shadow: 1px 1px 20px 6px rgb(1, 114, 145);
+            transform: rotateY(180deg);
+            background: linear-gradient(to bottom, rgb(198, 246, 198) 40%, rgb(39, 245, 217) 60%);
+            color: #fff;
+            /* text-align: center; */
+            /* color: rgb(189, 144, 144); */
+            /* border: 2px solid aquamarine; */
+            text-indent: 0%;
+
+        }
+
+        /* .card-back img {
+            
+
+        } */
+
+        .card:hover .card-front {
+            /* transition: transform 7s; */
+            transform: rotateY(-180deg);
+
+        }
+
+        .card:hover .card-back {
+            /* transition: transform 6s; */
+            transform: rotateY(0deg);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            /* border: 2px solid black; */
+            text-align: center;
+            border-radius: 9.5px;
+            box-shadow: 1px 1px 20px 6px rgb(1, 114, 145);
+            background: linear-gradient(rgb(198, 246, 198) 50%, rgb(39, 245, 217) 70%);
+            width: 400px;
+            height: 540px;
+            transition: transform 1s ease;
+            position: absolute;
+            cursor: pointer;
+            font-family: cursive;
+            font-size: large;
+        }
+
+
+        #mess2 {
+            /* margin: 2px; */
+            font-size: 17px;
+            text-shadow: 1px 3px 4px rgb(181, 3, 86);
+        }
+
+        #love {
+            font-size: xx-large;
+        }
+
+        .container2 {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            text-align: center;
+            /* border: 2px solid black; */
+            border-radius: 9.5px;
+            box-shadow: 1px 1px 20px 6px rgb(1, 114, 145);
+            background: linear-gradient(rgb(198, 246, 198) 50%, rgb(39, 245, 217) 70%);
+            width: 400px;
+            height: 540px;
+            transition: transform 1s ease;
+            position: absolute;
+            cursor: pointer;
+            font-family: cursive;
+            font-size: large;
+
+
+        }
+
+        #mess {
+            /* margin: 2px; */
+            font-size: 17px;
+            text-shadow: 1px 3px 4px rgb(181, 3, 86);
+        }
+
+        .card-back:hover .container2 {
+            
+            transform: translateX(-180%);
+        }
+
+        .card-back:hover .container {
+            transform: translateX(180%);
+        }
+
+
+        .container2 {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        #myVideo {
+            margin: auto;
+
+            border-style: double;
+            border-style: 2px white;
+            border-radius: 24px;
+            border-left-width: 9px;
+            border-right-width: 9px;
+        }
+
+        /* #box {
+            transition: transform 1s ease;
+        } */
+
+        img:hover {
+
+            visibility: hidden;
+            /* display: none; */
+            /* cursor: pointer; */
+
+        }
+
+        /* Your existing CSS code */
+
+        .animate-text {
+            overflow: hidden;
+            /* Hide overflow text */
+            /* white-space: nowrap; */
+            /* Prevent text from wrapping */
+            width: 0;
+            /* Initially set width to 0 */
+            animation: animate 5s forwards;
+            /* Use the 'animate' keyframes animation */
+            animation-delay: 2s;
+            /* Delay animation on the second paragraph */
+        }
+
+        /* Keyframes animation */
+        @keyframes animate {
+            0% {
+                width: 0;
+                /* Start with 0 width */
+            }
+
+            100% {
+                width: 100%;
+                /* Expand to full width */
+            }
+        }
+        
+
+        .delay-animation {
+            animation-delay: 36s;
+            /* Add a delay to this animation */
+        }
+
+
+        #love{
+            color: pink;
+            font-size: x-large;
+        }
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-front">
+            <h1 style="font-size: x-large; text-align: center; font-family: sans-serif;">To the one who completes my world, Happy Birthday, my Soulmate Miss <h2 style="color: pink;">Anupurna</h2></h1>
+            <p><img style="height: 20vh;" src="stock/392107080_HAND_CLICKING_400px.gif" alt="touch me"></p>
+
+        </div>
+        <div class="card-back">
+            <!-- <audio  autoplay loop src="stock/Naah-(Lofi)(PagalWorldl).mp3" ></audio> -->
+            <div>
+                <p style="margin: auto;
+                left: 5%;
+                bottom: 92%;
+                font-family: 'Caveat', cursive;
+                font-size: 36.5px;
+                /* font-weight: 650; */
+                text-shadow: 1px 3px 4px rgb(181, 3, 86); position: absolute; right: 2%;">Happy Birthday My Love
+                </p>
+            </div>
+            <!-- <img src="stock/anianu.mp4" class="birthday-girl-photo" style="border: 1px black; border-radius: 10px; height: 235px; width: 55%;
+                 transform: rotateZ(0deg);"> -->
+
+            <video id="myVideo" src="stock/anianu.mp4" height="470px" width="345px" autoplay loop*2></video> <br>
+            <img src="stock/392107080_HAND_CLICKING_400px.gif" alt=""
+                style="position: absolute;bottom:1px; height: 60px; width: auto; padding: 10px;">
+
+            <div class="container">
+                <span id="heart"
+                    style="margin-left: 2%;">❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️ <br>
+                    ❤️ <br> ❤️ <br> ❤️<br>❤️<br>❤️ <br>❤️<br>❤️<br>❤️<br>❤️</span>
+                <p id="mess2" class="animate-text delay-animation">
+                    May this year be filled with endless happiness, fulfilled dreams, and all the love your heart can
+                    hold. You deserve the world and more, and I'll always be here, supporting you just as you've
+                    supported me <br><br>I choose you And I'll choose you over and over and over. Without pause, without a doubt, in a heartbeat. I'll keep choosing you.<br>😘<br>You're not just my love, you're my heart.<br>💕<br>
+                    <a id="love">
+                        I LOVE YOU SO MUCH SWEETHEART❤️
+                    </a>
+                </p>
+
+
+
+                <span id="heart">❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️ <br> ❤️ <br> ❤️
+                    <br> ❤️<br>❤️<br>❤️ <br>❤️<br>❤️<br>❤️<br>❤️</span>
+
+            </div>
+            <div class="container2">
+                <span id="heart"
+                    style="margin-left: 2%;">❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️ <br>
+                    ❤️ <br> ❤️ <br> ❤️<br>❤️<br>❤️ <br>❤️<br>❤️<br>❤️<br>❤️</span>
+                <p id="mess" class="animate-text" style="animation-delay: 5s;" >
+                    Wishing the most wonderful birthday to the most amazing person in my life. <br>❤️<br>
+                    Today is all about you, celebrating the amazing person you are. Your kindness, love, and support
+                    mean the world to me. I'm so grateful to have you in my life. <br>😘<br>
+                    May your day be as special as you are.Happy Birthday, my dear Anu. Thank you for everything. Here's
+                    to many more beautiful moments together. <br> 💕
+                    <br> <br><a href="" style="font-size: xx-large; text-shadow: none;color: #fff;">⬇</a>
+                </p>
+                <span id="heart">❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️<br>❤️ <br> ❤️ <br> ❤️
+                    <br> ❤️<br>❤️<br>❤️ <br>❤️<br>❤️<br>❤️<br>❤️</span>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+    <!-- <div role="button">
+        <span class="glow"></span>
+        <div>❤️❤️❤️❤️</div>
+      </div> -->
+    <script>
+
+
+
+        var myVideo = document.getElementById('myVideo');
+
+        // Pause the video initially
+        myVideo.pause();
+
+        // Set a timeout to play the video after a delay (in milliseconds)
+        document.addEventListener('click', function () {
+            // Play the video when any part of the document is clicked
+            myVideo.play();
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
