@@ -1,3 +1,4 @@
+/* this css is use for to style the birthday card front  */
 @charset "UTF-8";
 
 @font-face {
@@ -111,7 +112,6 @@ body::after {
     height: auto;
     padding: 10px;
     border-radius: 10px;
-    /* background: #48b93c; */
     color: white;
     text-align: center;
     font-family: sans-serif;
